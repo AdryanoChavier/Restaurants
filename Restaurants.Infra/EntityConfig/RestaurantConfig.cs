@@ -11,7 +11,7 @@ public class RestaurantConfig: IEntityTypeConfiguration<Restaurant>
         builder.ToTable("Restaurants");
         builder.HasKey(x => x.Id);
         builder.Property(x => x.Name).HasMaxLength(100).IsRequired();
-        builder.Property(x => x.Description).HasMaxLength(100);
+        builder.Property(x => x.Description).HasMaxLength(255);
 
         builder.HasMany(x => x.Dishes)
             .WithOne()
