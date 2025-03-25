@@ -10,12 +10,9 @@ public class RestaurantSeeder(RestaurantsDbContext dbContext) : IRestaurantSeede
     {
         if (await dbContext.Database.CanConnectAsync())
         {
-            if (!await IsRestaurantTableEmpty())
-            {
                 var restaurants = GetRestaurants();
                 dbContext .AddRange(restaurants);
                 await dbContext.SaveChangesAsync();
-            }
         }
     }
 
@@ -72,11 +69,4 @@ public class RestaurantSeeder(RestaurantsDbContext dbContext) : IRestaurantSeede
 
         return restaurants;
     }
-
-    private async Task<bool> IsRestaurantTableEmpty()
-    {
-        var result = await dbContext.Database.ExecuteSqlRawAsync("SELECT COUNT(*) FROM Restaurants");
-        return result == 0;
-    }
-
 }
