@@ -11,6 +11,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restaurants.Application", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restaurants.Infra", "Restaurants.Infra\Restaurants.Infra.csproj", "{ABB64BFC-F523-402A-9E1E-DEAA103CEFC1}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{35329254-521E-44E8-B71E-10F60E4B0D94}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{EDEA8791-F4AB-4BDD-B14B-2B9298D0D373}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{DE4F5F8C-280C-49E6-BFDB-BA1DD646A1ED}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra", "Infra", "{45722991-E021-45F5-9738-43E5844F9A19}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +44,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{30620098-848F-47D3-B5AF-83D990E4C529} = {EDEA8791-F4AB-4BDD-B14B-2B9298D0D373}
+		{57B8C5B5-7168-47DD-A80E-F00FEC047253} = {DE4F5F8C-280C-49E6-BFDB-BA1DD646A1ED}
+		{A346001F-D74F-47AC-AD2A-D81068104354} = {35329254-521E-44E8-B71E-10F60E4B0D94}
+		{ABB64BFC-F523-402A-9E1E-DEAA103CEFC1} = {45722991-E021-45F5-9738-43E5844F9A19}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {76B17848-AE60-4963-9DC0-D7566FE864CB}
