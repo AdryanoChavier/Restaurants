@@ -13,7 +13,7 @@ public class RestaurantConfig: IEntityTypeConfiguration<Restaurant>
         builder.Property(x => x.Name).HasMaxLength(100).IsRequired();
         builder.Property(x => x.Description).HasMaxLength(255);
 
-        builder.HasMany(x => x.Dishes)
+        builder.HasMany(x => x.Dishs)
             .WithOne()
             .HasForeignKey(d => d.RestaurantId);
 

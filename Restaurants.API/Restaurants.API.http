@@ -5,3 +5,19 @@ GET {{Restaurants_API_HostAddress}}/api/restaurants
 ###
 GET {{Restaurants_API_HostAddress}}/api/restaurants/9
 
+###
+
+POST {{Restaurants_API_HostAddress}}/api/restaurants
+Content-Type: application/json
+
+{
+  "Name": "Espaço Row",
+  "Description": "A sua procura",
+  "Category": "Fine Dining",
+  "HasDelivery": true,
+  "Contactemail": "info@espacorow.com",
+  "ContactNumber": "555-123-4567",
+  "City": "Metropolis",
+  "Street": "456 Goumet Avenue",
+  "PostalCode": "54321"
+}

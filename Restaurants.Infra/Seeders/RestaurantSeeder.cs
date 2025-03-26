@@ -27,7 +27,7 @@ public class RestaurantSeeder(RestaurantsDbContext dbContext) : IRestaurantSeede
                     "KFC short for Kentucky Fried Chicken is an American fast food restaurant",
                 ContactEmail = "contact@kfc.com",
                 HasDelivery = true,
-                Dishes =
+                Dishs =
                 [
                     new ()
                     {

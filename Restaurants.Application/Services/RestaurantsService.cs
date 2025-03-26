@@ -1,23 +1,30 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using AutoMapper;
+using Microsoft.Extensions.Logging;
+using Restaurants.Application.DTOs;
 using Restaurants.Domain.Entities;
 using Restaurants.Domain.Repositories;
-using Restaurants.Domain.Services;
 
 namespace Restaurants.Application.Services;
 
-public class RestaurantsService(IRestaurantRepository restaurantRepository, ILogger<RestaurantsService> logger) : IRestaurantService
+public class RestaurantsService(IRestaurantRepository restaurantRepository, ILogger<RestaurantsService> logger, IMapper mapper) : IRestaurantService
 {
-    public async Task<IEnumerable<Restaurant>> GetAllRestaurants()
+    public async Task<int> Create(CreateRestaurantDto dto)
     {
-        logger.LogInformation("Getting all restaurants");
-        var restaurants = await restaurantRepository.GetAllAsync();
-        return restaurants;
+        logger.LogInformation("Creating a new restaurant");
+        var restaurant = mapper.Map<Restaurant>(dto);
+        int id = await restaurantRepository.Create(restaurant);
+        return id;
     }
 
-    public async Task<Restaurant?> GetById(int id)
+    public async Task<IEnumerable<RestaurantDto>> GetAllRestaurants()
+    {
+        logger.LogInformation("Getting all restaurants");
+        return mapper.Map<IEnumerable<RestaurantDto>>(await restaurantRepository.GetAllAsync()); ;
+    }
+
+    public async Task<RestaurantDto?> GetById(int id)
     {
         logger.LogInformation($"Getting restaurant {id}");
-        var restaurant = await restaurantRepository.GetByIdAsync(id);
-        return restaurant;
+        return mapper.Map<RestaurantDto>(await restaurantRepository.GetByIdAsync(id));
     }
 }
