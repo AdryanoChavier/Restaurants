@@ -11,15 +11,15 @@ POST {{Restaurants_API_HostAddress}}/api/restaurants
 Content-Type: application/json
 
 {
-  "Name": "Espaço Row",
-  "Description": "A sua procura",
-  "Category": "Fine Dining",
+  "Name": "Espaço Cafeteria",
+  "Description": "A sua procura  Cafeteria",
+  "Category": "Italian",
   "HasDelivery": true,
-  "Contactemail": "info@espacorow.com",
+  "Contactemail": "info@Cafeteria.com",
   "ContactNumber": "555-123-4567",
   "City": "Metropolis",
   "Street": "456 Goumet Avenue",
-  "PostalCode": "54321"
+  "PostalCode": "54-321"
 }
 
 ###

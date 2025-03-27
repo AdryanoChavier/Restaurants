@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Restaurants.Application.DTOs;
+using Restaurants.Application.Restaurants.Commands.CreateRestaurant;
 using Restaurants.Domain.Entities;
 
 namespace Restaurants.Application.Mappings;
@@ -9,7 +10,7 @@ public class DomainToDTOMappingProfile : Profile
     public DomainToDTOMappingProfile()
     {
 
-        CreateMap<CreateRestaurantDto, Restaurant>()
+        CreateMap<CreateRestaurantCommand, Restaurant>()
             .ForMember(d => d.Address, opt => opt.MapFrom(
                 src => new Address
                 {

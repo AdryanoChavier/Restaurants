@@ -3,9 +3,8 @@ using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Restaurants.Application.DTOs.Validators;
 using Restaurants.Application.Mappings;
-using Restaurants.Application.Services;
+using Restaurants.Application.Restaurants.Commands.CreateRestaurant;
 using Restaurants.Domain.Repositories;
 using Restaurants.Infra.Persistence;
 using Restaurants.Infra.Repositories;
@@ -26,15 +25,19 @@ public static class DependencyInjection
         #endregion
 
         #region Validators
-        services.AddValidatorsFromAssembly(typeof(CreateRestaurantDtoValidator).Assembly).AddFluentValidationAutoValidation();
+        services.AddValidatorsFromAssembly(typeof(CreateRestaurantCommandValidator).Assembly).AddFluentValidationAutoValidation();
+        #endregion
+
+        #region MediatR
+        services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(AppDomain.CurrentDomain.Load("Restaurants.Application")));
         #endregion
 
         services.AddScoped<IRestaurantSeeder, RestaurantSeeder>();
 
         services.AddScoped<IRestaurantRepository, RestauranteRepository>();
-        services.AddScoped<IRestaurantService, RestaurantsService>();
 
         
+
         return services;
 
     }
