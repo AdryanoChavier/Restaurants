@@ -19,7 +19,7 @@ public static class DependencyInjection
     {   
         services.AddDbContext<RestaurantsDbContext>(
         options => options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"),
-        b => b.MigrationsAssembly(typeof(RestaurantsDbContext).Assembly.FullName)));
+        b => b.MigrationsAssembly(typeof(RestaurantsDbContext).Assembly.FullName)).EnableSensitiveDataLogging());
 
         #region Mapeamento
         services.AddAutoMapper(typeof(DomainToDTOMappingProfile));

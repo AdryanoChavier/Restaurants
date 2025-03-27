@@ -11,11 +11,11 @@ POST {{Restaurants_API_HostAddress}}/api/restaurants
 Content-Type: application/json
 
 {
-  "Name": "Espaço Cafeteria",
-  "Description": "A sua procura  Cafeteria",
+  "Name": "Espaço pizza",
+  "Description": "A sua procura pizza",
   "Category": "Italian",
   "HasDelivery": true,
-  "Contactemail": "info@Cafeteria.com",
+  "Contactemail": "info@pizza.com",
   "ContactNumber": "555-123-4567",
   "City": "Metropolis",
   "Street": "456 Goumet Avenue",
