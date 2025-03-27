@@ -9,13 +9,14 @@ using Restaurants.Domain.Repositories;
 using Restaurants.Infra.Persistence;
 using Restaurants.Infra.Repositories;
 using Restaurants.Infrastructure.Seeders;
+using System.Reflection;
 
 namespace Restaurants.IoC;
 
 public static class DependencyInjection 
 {
     public static IServiceCollection AddInfraestructure(this IServiceCollection services,IConfiguration configuration)
-    {
+    {   
         services.AddDbContext<RestaurantsDbContext>(
         options => options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"),
         b => b.MigrationsAssembly(typeof(RestaurantsDbContext).Assembly.FullName)));
@@ -25,7 +26,7 @@ public static class DependencyInjection
         #endregion
 
         #region Validators
-        services.AddValidatorsFromAssembly(typeof(CreateRestaurantCommandValidator).Assembly).AddFluentValidationAutoValidation();
+        services.AddValidatorsFromAssembly(AppDomain.CurrentDomain.Load("Restaurants.Application")).AddFluentValidationAutoValidation();
         #endregion
 
         #region MediatR

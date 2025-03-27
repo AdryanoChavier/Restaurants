@@ -3,7 +3,7 @@
 GET {{Restaurants_API_HostAddress}}/api/restaurants
 
 ###
-GET {{Restaurants_API_HostAddress}}/api/restaurants/12
+GET {{Restaurants_API_HostAddress}}/api/restaurants/10
 
 ###
 
@@ -34,4 +34,16 @@ POST {{Restaurants_API_HostAddress}}/api/restaurants
 Content-Type: application/json
 {
   
+}
+
+###
+DELETE {{Restaurants_API_HostAddress}}/api/restaurants/9
+
+###
+PATCH {{Restaurants_API_HostAddress}}/api/restaurants/10
+Content-Type: application/json
+{
+ "Name": "Espaço Senac",
+ "Description": "Arroz",
+ "HasDelivery": false
 }
