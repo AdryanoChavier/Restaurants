@@ -1,6 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using FluentValidation;
+using FluentValidation.AspNetCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Restaurants.Application.DTOs.Validators;
 using Restaurants.Application.Mappings;
 using Restaurants.Application.Services;
 using Restaurants.Domain.Repositories;
@@ -22,13 +25,16 @@ public static class DependencyInjection
         services.AddAutoMapper(typeof(DomainToDTOMappingProfile));
         #endregion
 
+        #region Validators
+        services.AddValidatorsFromAssembly(typeof(CreateRestaurantDtoValidator).Assembly).AddFluentValidationAutoValidation();
+        #endregion
 
         services.AddScoped<IRestaurantSeeder, RestaurantSeeder>();
 
         services.AddScoped<IRestaurantRepository, RestauranteRepository>();
         services.AddScoped<IRestaurantService, RestaurantsService>();
 
-
+        
         return services;
 
     }
