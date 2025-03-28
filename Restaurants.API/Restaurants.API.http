@@ -40,7 +40,7 @@ Content-Type: application/json
 DELETE {{Restaurants_API_HostAddress}}/api/restaurants/9
 
 ###
-PATCH {{Restaurants_API_HostAddress}}/api/restaurants/10
+PATCH {{Restaurants_API_HostAddress}}/api/restaurants/9
 Content-Type: application/json
 {
  "Name": "Espaço Senac",
