@@ -52,10 +52,11 @@ Content-Type: application/json
 
 POST {{Restaurants_API_HostAddress}}/api/restaurants/10/dishes
 Contente-Type: application/json
+
 {
   "Name": "Spagthetti Bolognese",
   "Description": "Classic Italian pasta dish with rith meat sauce",
-  "Price": -23,
-  "KiloCalories": -1
+  "Price": 23,
+  "KiloCalories": 124
 }
 ###
