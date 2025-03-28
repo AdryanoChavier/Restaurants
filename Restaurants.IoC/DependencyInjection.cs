@@ -4,12 +4,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Restaurants.Application.Mappings;
-using Restaurants.Application.Restaurants.Commands.CreateRestaurant;
 using Restaurants.Domain.Repositories;
 using Restaurants.Infra.Persistence;
 using Restaurants.Infra.Repositories;
 using Restaurants.Infrastructure.Seeders;
-using System.Reflection;
 
 namespace Restaurants.IoC;
 
@@ -37,7 +35,7 @@ public static class DependencyInjection
 
         services.AddScoped<IRestaurantRepository, RestauranteRepository>();
 
-        
+        services.AddScoped<IDishesRepository, DishesRepository>();
 
         return services;
 

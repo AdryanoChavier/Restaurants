@@ -1,14 +1,12 @@
-﻿using System.ComponentModel;
+﻿using MediatR;
 
-namespace Restaurants.Domain.Entities;
-
-public class Dish
+namespace Restaurants.Application.Dishes.Commands.CreateDish;
+public class CreateDishCommand : IRequest
 {
-    public int Id { get; set; }
     public string Name { get; set; } = default!;
     public string Description { get; set; } = default!;
     public decimal Price { get; set; }
     public int? KiloCalories { get; set; }
-    
+
     public int RestaurantId { get; set; }
 }
