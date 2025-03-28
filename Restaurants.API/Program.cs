@@ -10,6 +10,7 @@ builder.Services.AddControllers();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<ErroHandlingMiddle>();
+builder.Services.AddScoped<RequestTimeLoggingMiddleware>();
 
 builder.Services.AddInfraestructure(builder.Configuration);
 builder.Host.UseSerilog((context, configuration) =>
@@ -25,6 +26,7 @@ var seeder = scope.ServiceProvider.GetRequiredService<IRestaurantSeeder>();
 
 // Configure the HTTP request pipeline.
 app.UseMiddleware<ErroHandlingMiddle>();
+app.UseMiddleware<RequestTimeLoggingMiddleware>();
 
 app.UseSerilogRequestLogging();
 
