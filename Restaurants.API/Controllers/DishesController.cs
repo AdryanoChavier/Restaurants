@@ -1,9 +1,12 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Restaurants.Application.Dishes.Commands.CreateDish;
+using Restaurants.Application.Dishes.Commands.DeleteDishesAllForRestaurant;
+using Restaurants.Application.Dishes.Commands.DeleteDishForRestaurant;
 using Restaurants.Application.Dishes.Queries.GetAllForRestaurant;
 using Restaurants.Application.Dishes.Queries.GetDishByIdForRestaurantQuery;
 using Restaurants.Application.DTOs;
+using Restaurants.Application.Restaurants.Commands.DeleteRestaurant;
 namespace Restaurants.API.Controllers;
 
 [Route("api/restaurants/{restaurantId}/dishes")]
@@ -32,4 +35,28 @@ public class DishesController(IMediator mediator) : ControllerBase
         var dishes = await mediator.Send(new GetDishByIdForRestaurantQuery(restaurantId,dishId));
         return Ok(dishes);
     }
+
+    [HttpDelete("{dishId}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> DeleteDishForRestaurant([FromRoute] int restaurantId, int dishId)
+    {
+        await mediator.Send(new DeleteDishForRestaurantCommand(restaurantId,dishId));
+
+        return NoContent();
+
+    }
+
+    [HttpDelete]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> DeleteDishesAllForRestaurant([FromRoute] int restaurantId)
+    {
+        await mediator.Send(new DeleteDishesAllForRestaurantCommand(restaurantId));
+
+        return NoContent();
+
+    }
+
 }
+
