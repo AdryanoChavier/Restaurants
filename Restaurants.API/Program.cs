@@ -1,3 +1,4 @@
+using Alexa.NET.Request;
 using Restaurants.API.Middlewares;
 using Restaurants.Infrastructure.Seeders;
 using Restaurants.IoC;
@@ -37,6 +38,8 @@ app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();
+
+app.MapIdentityApi<User>();
 
 app.UseAuthorization();
 

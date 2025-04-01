@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Restaurants.Application.Mappings;
+using Restaurants.Domain.Entities;
 using Restaurants.Domain.Repositories;
 using Restaurants.Infra.Persistence;
 using Restaurants.Infra.Repositories;
@@ -29,6 +30,10 @@ public static class DependencyInjection
 
         #region MediatR
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(AppDomain.CurrentDomain.Load("Restaurants.Application")));
+        #endregion
+
+        #region Identity
+        services.AddIdentityApiEndpoints<User>().AddEntityFrameworkStores<RestaurantsDbContext>();
         #endregion
 
         services.AddScoped<IRestaurantSeeder, RestaurantSeeder>();

@@ -6,20 +6,20 @@ GET {{Restaurants_API_HostAddress}}/api/restaurants
 GET {{Restaurants_API_HostAddress}}/api/restaurants/10
 
 ###
+POST {{Restaurants_API_HostAddress}}/register
+Content-Type: application/json
+{
+  "email": "testuser@test.com",
+  "password": "password"
+}
+###
 
-POST {{Restaurants_API_HostAddress}}/api/restaurants
+POST {{Restaurants_API_HostAddress}}/register
 Content-Type: application/json
 
 {
-  "Name": "Espaço pizza",
-  "Description": "A sua procura pizza",
-  "Category": "Italian",
-  "HasDelivery": true,
-  "Contactemail": "info@pizza.com",
-  "ContactNumber": "555-123-4567",
-  "City": "Metropolis",
-  "Street": "456 Goumet Avenue",
-  "PostalCode": "54-321"
+ "email": "teste@teste.com",
+ "password": "pass"
 }
 
 ###
@@ -51,7 +51,7 @@ Content-Type: application/json
 ###
 
 POST {{Restaurants_API_HostAddress}}/api/restaurants/10/dishes
-Contente-Type: application/json
+Content-Type: application/json
 
 {
   "Name": "Spagthetti Bolognese",
@@ -60,3 +60,10 @@ Contente-Type: application/json
   "KiloCalories": 124
 }
 ###
+
+POST {{Restaurants_API_HostAddress}}/register
+Content-Type: application/json
+{
+  "email": "testuser@test.com",
+  "password": "password"
+}
